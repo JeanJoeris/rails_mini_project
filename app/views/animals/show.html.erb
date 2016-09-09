@@ -1,0 +1,19 @@
+<h2><%= @animal.name %></h2>
+<p>
+  <strong>Legs:</strong> <%= @animal.legs %>
+</p>
+<p>
+  <strong>Poisonous:</strong> <%= @animal.poisonous %>
+</p>
+<p>
+  <strong>Warm Blooded:</strong> <%= @animal.warm_blooded %>
+</p>
+
+<% if @animal.image_path %>
+  <div class="animal_image">
+    <%= image_tag @animal.image_path %> <br />
+  </div>
+<% end %>
+<%= link_to "Back to Animals", animals_path %> |
+<%= link_to "Edit Animal", edit_animal_path %> |
+<%= link_to "Delete Animal", @animal, method: :delete %> |

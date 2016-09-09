@@ -1,0 +1,15 @@
+<h2>Create a New Animal!</h2>
+<%= form_for(@animal) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br/>
+  <%= f.label :legs %>
+  <%= f.text_field :legs %> <br/>
+  <%= f.label :poisonous %>
+  <%= f.check_box :poisonous %> <br/>
+  <%= f.label :warm_blooded %>
+  <%= f.check_box :warm_blooded %> <br/>
+  <%= f.label :image_path %> <br/>
+  <%= f.text_field :image_path %> <br/>
+
+  <%= f.submit %>
+<% end %>

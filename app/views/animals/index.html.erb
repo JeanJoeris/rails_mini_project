@@ -1,0 +1,10 @@
+<h2>Animals that are not currently in the Turing Basement</h2>
+<p>
+  There are <%= @animal.count %> animals
+</p>
+
+<% @animal.each do |animal| %>
+  <h3><%= link_to animal.name, animal %></h3>
+<% end %>
+
+<%= link_to "Add an animal", new_animal_path %>
