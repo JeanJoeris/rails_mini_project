@@ -19,9 +19,15 @@ RSpec.describe Animal, type: :model do
   end
 
   context "given partial data" do
-    it "requires a name and number of legs" do
+    it "requires a number of legs" do
       name = "Aardvark"
       aardvark = Animal.new(name: name)
+      expect(aardvark).to be_invalid
+    end
+
+    it "requires a number of legs" do
+      legs = 4
+      aardvark = Animal.new(legs: legs)
       expect(aardvark).to be_invalid
     end
   end
