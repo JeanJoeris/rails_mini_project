@@ -10,7 +10,7 @@ RSpec.feature "User creates a user account" do
     # and fill in a password
     # and fill in password confirmation
     # and click on "Create User"
-    # then I see "Welcome, #{name}!"
+    # then I see "Welcome, name!"
     visit '/'
     click_on "Sign Up"
     fill_in "Name", with: "Steve"
@@ -20,7 +20,6 @@ RSpec.feature "User creates a user account" do
     click_on "Create Account"
 
     expect(current_path).to eq(user_path(User.last))
-    save_and_open_page
     expect(page).to have_content("Welcome, Steve!")
   end
 end
