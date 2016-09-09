@@ -13,10 +13,14 @@ RSpec.feature "User creates a user account" do
     # then I see "Welcome, #{name}!"
     visit '/'
     click_on "Sign Up"
+    fill_in "Name", with: "Steve"
     fill_in "Username", with: "Steve"
     fill_in "Password", with: "123"
+    fill_in "Password confirmation", with: "123"
     click_on "Create Account"
 
+    expect(current_path).to eq(user_path(User.last))
+    save_and_open_page
     expect(page).to have_content("Welcome, Steve!")
   end
 end
