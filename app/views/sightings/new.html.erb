@@ -1,0 +1,13 @@
+<h1>What did you see?!</h1>
+
+<%= form_for(@sighting) do |f| %>
+  <%= f.label :animal %>
+  <%= f.collection_select :animal_id, @animals, :id, :name %><br />
+
+  <%= f.label :location %>
+  <%= f.collection_select :location_id, @locations, :id, :name %><br />
+
+  <%= f.datetime_select :sighting_time %><br />
+
+  <%= f.submit %>
+<% end %>
