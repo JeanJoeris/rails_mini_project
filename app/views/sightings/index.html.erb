@@ -1,0 +1,11 @@
+<h1>Animal Sightings</h1>
+
+<ul>
+  <% @sightings.each do |sighting| %>
+    <li>
+      <%= sighting.animal.name %> was sighted in <%= sighting.location %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Sighting", new_sighting_path %>
