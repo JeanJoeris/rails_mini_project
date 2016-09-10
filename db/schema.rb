@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910170748) do
+ActiveRecord::Schema.define(version: 20160910172355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20160910170748) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sightings", force: :cascade do |t|
+    t.integer  "animals_id"
+    t.integer  "locations_id"
+    t.datetime "sighting_time"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["animals_id"], name: "index_sightings_on_animals_id", using: :btree
+    t.index ["locations_id"], name: "index_sightings_on_locations_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
@@ -41,4 +51,6 @@ ActiveRecord::Schema.define(version: 20160910170748) do
     t.datetime "updated_at",                        null: false
   end
 
+  add_foreign_key "sightings", "animals", column: "animals_id"
+  add_foreign_key "sightings", "locations", column: "locations_id"
 end
