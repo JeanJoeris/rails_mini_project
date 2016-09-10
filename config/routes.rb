@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
-  delete '/logout', to: "sessions#destory"
+  delete '/logout', to: "sessions#destroy"
   # resources :animals, only: [:index, :new]
   get '/animals', to: 'animals#index'
   get '/animals/new', to: 'animals#new', as: "new_animal"
