@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20160910172355) do
   end
 
   create_table "sightings", force: :cascade do |t|
-    t.integer  "animals_id"
-    t.integer  "locations_id"
+    t.integer  "animal_id"
+    t.integer  "location_id"
     t.datetime "sighting_time"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["animals_id"], name: "index_sightings_on_animals_id", using: :btree
-    t.index ["locations_id"], name: "index_sightings_on_locations_id", using: :btree
+    t.index ["animal_id"], name: "index_sightings_on_animal_id", using: :btree
+    t.index ["location_id"], name: "index_sightings_on_location_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +51,6 @@ ActiveRecord::Schema.define(version: 20160910172355) do
     t.datetime "updated_at",                        null: false
   end
 
-  add_foreign_key "sightings", "animals", column: "animals_id"
-  add_foreign_key "sightings", "locations", column: "locations_id"
+  add_foreign_key "sightings", "animals"
+  add_foreign_key "sightings", "locations"
 end
