@@ -1,4 +1,6 @@
 class AnimalsController < ApplicationController
+  before_action :require_login
+
   def index
     @animal = Animal.all
   end
@@ -12,8 +14,13 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    @animal = Animal.create(animal_params)
-    redirect_to animals_path
+    @animal = Animal.new(animal_params)
+    if @animal.save
+      redirect_to @animal
+    else
+      flash.now[:error] = @animal.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   def edit
@@ -36,5 +43,10 @@ class AnimalsController < ApplicationController
 
   def animal_params
     params.require(:animal).permit(:name, :legs, :poisonous, :warm_blooded, :image_path)
+  end
+
+  def require_login
+    flash[:authorization_error] = "You must log in to add an animal"
+    redirect_to login_path unless logged_in?
   end
 end

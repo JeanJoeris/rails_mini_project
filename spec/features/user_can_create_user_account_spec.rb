@@ -4,7 +4,8 @@ RSpec.feature "User creates a user account" do
   scenario "they create and see their account" do
     # As a User
     # When I visit home
-    # and click "New Account"
+    # and click "Login/Sign-up"
+    # and click "Create a New Account"
     # and fill in a name
     # and fill in a username
     # and fill in a password
@@ -12,7 +13,8 @@ RSpec.feature "User creates a user account" do
     # and click on "Create User"
     # then I see "Welcome, name!"
     visit '/'
-    click_on "Sign Up"
+    click_on "Login/Sign-Up"
+    click_on "Create a New Account"
     fill_in "Name", with: "Steve"
     fill_in "Username", with: "Steve"
     fill_in "Password", with: "123"
