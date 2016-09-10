@@ -44,16 +44,16 @@ RSpec.feature "Admin creates a location" do
   end
 
   context "without admin authorization" do
-    scenario "cannot see new location link" do
+    scenario "cannot visit the location index" do
       # As a non-admin user
       # When I visit the location index
-      # I expect to not see a new location button
+      # I expect to see 404
       user = create(:user)
       login_user(user)
 
       visit admin_locations_path
 
-      expect(page).to_not have_content("New Location")
+      expect(page).to have_content("404")
     end
 
     scenario "cannot visit the new location page" do
