@@ -1,0 +1,12 @@
+<h1>Locations</h1>
+<ul>
+  <% @locations.each do |location| %>
+    <li>
+      <%= location.name %>
+    </li>
+  <% end %>
+</ul>
+
+<% if current_admin? %>
+  <%= link_to "New Location", new_admin_location_path %>
+<% end %>
