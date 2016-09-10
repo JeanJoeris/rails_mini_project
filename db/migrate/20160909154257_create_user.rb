@@ -6,7 +6,7 @@ class CreateUser < ActiveRecord::Migration[5.0]
       t.string :password_digest
       t.string :password_confirmation
       t.integer :role, default: 0
-      t.timestamp null: false
+      t.timestamps null: false
     end
   end
 end

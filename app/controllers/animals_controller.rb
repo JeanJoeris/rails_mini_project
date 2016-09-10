@@ -46,7 +46,9 @@ class AnimalsController < ApplicationController
   end
 
   def require_login
-    flash[:authorization_error] = "You must log in to add an animal"
-    redirect_to login_path unless logged_in?
+    unless logged_in?
+      flash[:authorization_error] = "You must log in to add an animal"
+      redirect_to login_path 
+    end
   end
 end
