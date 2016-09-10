@@ -31,4 +31,6 @@ RSpec.describe Animal, type: :model do
       expect(aardvark).to be_invalid
     end
   end
+
+  it { should have_many(:sightings) }
 end

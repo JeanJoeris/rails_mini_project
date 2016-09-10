@@ -17,4 +17,6 @@ RSpec.describe Location, type: :model do
       expect(location).to be_invalid
     end
   end
+
+  it { should have_many(:sightings) }
 end

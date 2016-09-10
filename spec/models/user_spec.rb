@@ -12,4 +12,6 @@ RSpec.describe User, type: :model do
 
     expect(user.role).to eq("default")
   end
+
+  it { should have_many(:sightings) }
 end
