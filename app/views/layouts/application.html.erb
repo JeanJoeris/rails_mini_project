@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% flash.each do |name, message| %>
+      <%= content_tag :div, message, class: "flash_#{name}" %>
+    <% end %>
+
     <%= yield %>
+
+    <%= link_to "Login/Sign-Up", login_path %>
   </body>
 </html>
