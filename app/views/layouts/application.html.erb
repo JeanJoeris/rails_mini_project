@@ -14,7 +14,10 @@
     <% end %>
 
     <%= yield %>
-
-    <%= link_to "Login/Sign-Up", login_path %>
+    <% if logged_in? %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login/Sign-Up", login_path %>
+    <% end %>
   </body>
 </html>

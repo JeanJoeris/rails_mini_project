@@ -9,4 +9,15 @@ FactoryGirl.define do
       role 1
     end
   end
+
+  factory :animal do
+    name "Aardwolf"
+    legs 4
+    warm_blooded true
+    poisonous false
+  end
+
+  factory :location do
+    name "Big workspace bathrooms"
+  end
 end

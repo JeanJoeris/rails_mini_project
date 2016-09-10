@@ -1,6 +1,1 @@
 <h2>Welcome, <%= @user.name %>!</h2>
-
-
-<% if current_user %>
-  <%= link_to "Logout", logout_path, method: :delete %>
-<% end %>
