@@ -49,8 +49,6 @@ RSpec.feature "User creates animal" do
 
       click_on "Create Animal"
 
-      save_and_open_page
-
       expect(page).to have_content("Animalia")
       expect(page).to have_content("Chordata")
       expect(page).to have_content("Mammalia")
