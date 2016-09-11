@@ -7,7 +7,6 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
-    # @wiki_img = "https://#{@animal.image_path}"
   end
 
   def new

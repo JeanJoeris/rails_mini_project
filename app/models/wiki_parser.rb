@@ -23,13 +23,11 @@ module WikiParser
 
   def self.find_tax_names(tax_data)
     tax_data.map do |tax_datum|
-      # byebug
       if tax_datum
-        matches = tax_datum.to_html.scan(/\>[^<]+\</)
-        matches.delete(">\n<")
-        matches.first.delete("><").split(".").last.gsub(/\u00a0/, " ").strip.capitalize if matches.first
+        matches = tax_datum.to_html.scan(/\>[^<]+\</) # finds the text rendered on screen i.e. text between tags
+        matches.delete(">\n<") # delete any stray newline chars hanging between tags
+        matches.first.delete("><").split(".").last.gsub(/\u00a0/, " ").strip.capitalize if matches.first # cut the text out from the ><, delete any spaces
       end
-      # /\>[^<]+\</.match(tax_datum.to_html).to_s
     end
   end
 
@@ -37,16 +35,4 @@ module WikiParser
     doc = get_wiki_hmtl(creature)
     doc.css(".infobox").css("img").first.attributes["src"].value.reverse.chop.chop.reverse
   end
-
-  # def find_row_after_a_word(td_rows, word)
-  #   result = nil
-  #   td_rows.each_with_index do |row, index|
-  #     # puts row
-  #     # puts "~*~*~*~*~*~*~*~*~*~~*"
-  #     result = td_rows[index+1] if row.to_s.include?(word)
-  #     # byebug if result
-  #     # puts result.children.text if result
-  #   end
-  #   result
-  # end
 end
