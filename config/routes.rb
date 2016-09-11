@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :locations, only: [:index, :new, :create]
   end
 
-  resources :sightings, only: [:index, :new]
+  resources :sightings, only: [:index, :new, :create, :show]
   # get '/animals', to: 'animals#index'
   # get '/animals/new', to: 'animals#new', as: "new_animal"
   # post '/animals', to: 'animals#create'

@@ -20,14 +20,18 @@ RSpec.feature "User creates a sighting" do
 
     click_on "New Sighting"
 
-    select animal.name, from: "animalSelect"
-    select location.name, from: "locationSelect"
-    select DateTime.now, from: "datetimeSelect"
+    select(animal.name, :from => "sighting_animal_id")
+    select(location.name, :from => "sighting_location_id")
+    select(2016, :from => "sighting_sighting_time_1i")
+    select("August", :from => "sighting_sighting_time_2i")
+    select(9, :from => "sighting_sighting_time_3i")
+    select(20, :from => "sighting_sighting_time_4i")
+    select(59, :from => "sighting_sighting_time_5i")
 
     click_on "Create Sighting"
-
-    expect(page).to have_content animal.name
-    expect(page).to have_content location.name
+    save_and_open_page
+    
+    expect(page).to have_content("#{animal.name} was spotted at #{location.name} at 20:59 on August 09")
   end
 
   def login_user(user)

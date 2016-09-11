@@ -3,7 +3,8 @@
 <ul>
   <% @sightings.each do |sighting| %>
     <li>
-      <%= sighting.animal.name %> was sighted in <%= sighting.location %>
+      <!-- <%= sighting.animal.name %> was sighted in <%= sighting.location.name %> -->
+      <%= link_to "#{sighting.animal.name} was sighted in #{sighting.location.name}", sighting %>
     </li>
   <% end %>
 </ul>
