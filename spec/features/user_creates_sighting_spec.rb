@@ -50,7 +50,7 @@ RSpec.feature "User creates a sighting" do
     select(9, :from => "sighting_sighting_time_3i")
     select(20, :from => "sighting_sighting_time_4i")
     select(59, :from => "sighting_sighting_time_5i")
-    check("non_sighting")
+    check("sighting_non_sighting")
 
     click_on "Create Sighting"
 

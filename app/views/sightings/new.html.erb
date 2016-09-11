@@ -9,5 +9,8 @@
 
   <%= f.datetime_select :sighting_time %><br />
 
+  <%= f.label :non_sighting, "Non-sighting?" %>
+  <%= f.check_box :non_sighting %>
+
   <%= f.submit %>
 <% end %>
