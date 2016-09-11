@@ -1,0 +1,3 @@
+class Kingdom < ApplicationRecord
+
+end
