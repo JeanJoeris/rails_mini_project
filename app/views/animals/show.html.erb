@@ -1,9 +1,9 @@
-<h1 class="text-center"><u><%= @animal.name %></u></h2>
 
 
+<h1 class="text-center container well well-sm"><u><%= @animal.name %></u></h1>
 
-<div class="container">
-  <div class="jumbotron row">
+<div class="container jumbotron">
+  <div class="row">
     <div class="col col-md-4">
       <h3><u>Basic Info:</u></h3>
       <p>
@@ -37,8 +37,10 @@
   </div>
 
 </div>
-
-
-<%= link_to "Back to Animals", animals_path %> |
-<%= link_to "Edit Animal", edit_animal_path %> |
-<%= link_to "Delete Animal", @animal, method: :delete %> |
+<div class="container well well-md">
+  <div class="row">
+    <h4 class="text-center col col-md-4"><%= link_to "Back to Animals", animals_path %></h4>
+    <h4 class="text-center col col-md-4"><%= link_to "Edit Animal", edit_animal_path %></h4>
+    <h4 class="text-center col col-md-4"><%= link_to "Delete Animal", @animal, method: :delete %></h4>
+  </div>
+</div>

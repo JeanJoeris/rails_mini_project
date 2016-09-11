@@ -2,7 +2,7 @@ class AnimalsController < ApplicationController
   before_action :require_login
 
   def index
-    @animal = Animal.all
+    @animal = Animal.alpha_sorted
   end
 
   def show
