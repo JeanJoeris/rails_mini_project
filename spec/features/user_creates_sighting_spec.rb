@@ -30,7 +30,7 @@ RSpec.feature "User creates a sighting" do
 
     click_on "Create Sighting"
 
-    expect(page).to have_content("#{animal.name} was spotted at #{location.name} at 20:59 on August 09")
+    expect(page).to have_content("#{animal.name} was sighted at #{location.name} at 20:59 on August 09")
   end
 
   scenario "They see a non_sighting" do
@@ -54,7 +54,7 @@ RSpec.feature "User creates a sighting" do
 
     click_on "Create Sighting"
 
-    expect(page).to have_content("#{animal.name} was not spotted at #{location.name} at 20:59 on August 09")
+    expect(page).to have_content("#{animal.name} was not sighted at #{location.name} at 20:59 on August 09")
   end
 
   def login_user(user)

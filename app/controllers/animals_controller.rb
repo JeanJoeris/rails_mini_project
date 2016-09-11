@@ -15,8 +15,8 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
-    add_taxonomical_data(@animal)
     if @animal.save
+      add_taxonomical_data(@animal)
       redirect_to @animal
     else
       flash.now[:error] = @animal.errors.full_messages.join(", ")
@@ -58,7 +58,7 @@ class AnimalsController < ApplicationController
 
   def add_taxonomical_data(animal)
     animal.add_taxonomical_data
-    unless animal.image_path
+    if animal.image_path.strip == ""
       animal_pic = WikiParser.get_wiki_picture(animal.name)
       animal.update(image_path: animal_pic)
     end
