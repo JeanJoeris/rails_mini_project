@@ -1,9 +1,11 @@
-<h1><%= data.name %></h1>
+<h1 class="text-center container well well-sm"><%= data.name %></h1>
 
-<ul>
-  <% data.animals.each do |animal| %>
-    <li>
-      <%= link_to animal.name, animal %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% data.animals.each do |animal| %>
+    <div class="container col col-md-4">
+      <h3 class="well well-md text-center"><%= link_to animal.name, animal %></h2>
+    </div>
+    <% end %>
+  </div>
+</div>
