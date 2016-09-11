@@ -4,7 +4,7 @@
   <% @sightings.each do |sighting| %>
     <li>
       <!-- <%= sighting.animal.name %> was sighted in <%= sighting.location.name %> -->
-      <%= link_to "#{sighting.animal.name} was sighted in #{sighting.location.name}", sighting %>
+      <%= link_to sighting.short_sighting_text, sighting %>
     </li>
   <% end %>
 </ul>

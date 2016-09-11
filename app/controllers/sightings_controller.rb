@@ -26,6 +26,6 @@ class SightingsController < ApplicationController
   private
 
   def sighting_params
-    params.require(:sighting).permit(:animal_id, :location_id, :sighting_time)
+    params.require(:sighting).permit(:animal_id, :location_id, :sighting_time, :non_sighting)
   end
 end

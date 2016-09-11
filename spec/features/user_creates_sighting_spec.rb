@@ -29,8 +29,32 @@ RSpec.feature "User creates a sighting" do
     select(59, :from => "sighting_sighting_time_5i")
 
     click_on "Create Sighting"
-    
-    expect(page).to have_content("#{animal.name} was spotted at #{location.name} at 20:59 on August 09")
+
+    expect(page).to have_content("#{animal.name} was sighted at #{location.name} at 20:59 on August 09")
+  end
+
+  scenario "They see a non_sighting" do
+    animal = create(:animal)
+    location = create(:location)
+    user = create(:user)
+    login_user(user)
+
+    visit sightings_path
+
+    click_on "New Sighting"
+
+    select(animal.name, :from => "sighting_animal_id")
+    select(location.name, :from => "sighting_location_id")
+    select(2016, :from => "sighting_sighting_time_1i")
+    select("August", :from => "sighting_sighting_time_2i")
+    select(9, :from => "sighting_sighting_time_3i")
+    select(20, :from => "sighting_sighting_time_4i")
+    select(59, :from => "sighting_sighting_time_5i")
+    check("sighting_non_sighting")
+
+    click_on "Create Sighting"
+
+    expect(page).to have_content("#{animal.name} was not sighted at #{location.name} at 20:59 on August 09")
   end
 
   def login_user(user)
