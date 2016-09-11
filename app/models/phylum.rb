@@ -1,0 +1,3 @@
+class Phylum < ApplicationRecord
+  
+end
