@@ -3,8 +3,10 @@
   There are <%= @animal.count %> animals
 </p>
 
-<% @animal.each do |animal| %>
-  <h3><%= link_to animal.name, animal %></h3>
-<% end %>
+<div class="container jumbotron">
+  <% @animal.each do |animal| %>
+    <h3><%= link_to animal.name, animal %></h3>
+  <% end %>
+</div>
 
 <%= link_to "Add an animal", new_animal_path %>
