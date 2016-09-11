@@ -40,6 +40,7 @@ RSpec.feature "User creates animal" do
     end
 
     scenario "gives a species and sees the taxonomical data" do
+      pending
       login_user
 
       visit new_animal_path
