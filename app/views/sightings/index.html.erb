@@ -1,12 +1,13 @@
-<h1>Animal Sightings</h1>
+<h1 class="text-center container well well-sm">Animal Sightings</h1>
 
-<ul>
-  <% @sightings.each do |sighting| %>
-    <li>
-      <!-- <%= sighting.animal.name %> was sighted in <%= sighting.location.name %> -->
-      <%= link_to sighting.short_sighting_text, sighting %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <% @sightings.each do |sighting| %>
+        <div class="container col col-md-4">
+            <h3 class=" well well-sm text-center"><%= link_to sighting.short_sighting_text, sighting %></h3>
+        </div>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "New Sighting", new_sighting_path %>
