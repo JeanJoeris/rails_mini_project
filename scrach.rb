@@ -1,13 +1,15 @@
 require 'nokogiri'
 require 'open-uri'
 require 'byebug'
-doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/dog"))
+doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/platypus"))
 # byebug
 table_data = doc.css(".infobox").css("td")#.to_xml
 doc.css(".infobox").css("td").css("a") do |link|
   puts link
 end
 
+
+# "\\>[^<]+\<\" <--- regex-sorcery complete?
 
 def find_row_after_a_word(td_rows, word)
   result = nil
