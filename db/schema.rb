@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911170433) do
+ActiveRecord::Schema.define(version: 20160911170752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 20160911170433) do
     t.integer  "kingdom_id"
     t.integer  "phylum_id"
     t.integer  "taxonomical_class_id"
+    t.integer  "order_id"
     t.index ["kingdom_id"], name: "index_animals_on_kingdom_id", using: :btree
+    t.index ["order_id"], name: "index_animals_on_order_id", using: :btree
     t.index ["phylum_id"], name: "index_animals_on_phylum_id", using: :btree
     t.index ["taxonomical_class_id"], name: "index_animals_on_taxonomical_class_id", using: :btree
   end
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160911170433) do
   end
 
   add_foreign_key "animals", "kingdoms"
+  add_foreign_key "animals", "orders"
   add_foreign_key "animals", "phylums"
   add_foreign_key "animals", "taxonomical_classes"
   add_foreign_key "sightings", "animals"
