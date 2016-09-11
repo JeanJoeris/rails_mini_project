@@ -1,0 +1,7 @@
+<h1>Sighting!</h1>
+
+<p>
+  <%= @sighting.animal.name %> was spotted at <%= @sighting.location.name %>
+  at <%= @sighting.sighting_time.strftime("%H:%M") %> on <%= @sighting.sighting_time.strftime("%B %d") %>
+  by <%= @sighting.user.name %>
+</p>
