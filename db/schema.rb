@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911171655) do
+ActiveRecord::Schema.define(version: 20160911171848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,13 @@ ActiveRecord::Schema.define(version: 20160911171655) do
     t.integer  "order_id"
     t.integer  "family_id"
     t.integer  "genus_id"
+    t.integer  "species_id"
     t.index ["family_id"], name: "index_animals_on_family_id", using: :btree
     t.index ["genus_id"], name: "index_animals_on_genus_id", using: :btree
     t.index ["kingdom_id"], name: "index_animals_on_kingdom_id", using: :btree
     t.index ["order_id"], name: "index_animals_on_order_id", using: :btree
     t.index ["phylum_id"], name: "index_animals_on_phylum_id", using: :btree
+    t.index ["species_id"], name: "index_animals_on_species_id", using: :btree
     t.index ["taxonomical_class_id"], name: "index_animals_on_taxonomical_class_id", using: :btree
   end
 
@@ -112,6 +114,7 @@ ActiveRecord::Schema.define(version: 20160911171655) do
   add_foreign_key "animals", "kingdoms"
   add_foreign_key "animals", "orders"
   add_foreign_key "animals", "phylums"
+  add_foreign_key "animals", "species"
   add_foreign_key "animals", "taxonomical_classes"
   add_foreign_key "sightings", "animals"
   add_foreign_key "sightings", "locations"
