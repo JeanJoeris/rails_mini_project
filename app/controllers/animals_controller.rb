@@ -31,6 +31,9 @@ class AnimalsController < ApplicationController
   def update
     @animal = Animal.find(params[:id])
     @animal.update(animal_params)
+    if @animal.no_taxonomical_data?
+      add_taxonomical_data(@animal)
+    end
     redirect_to @animal
   end
 

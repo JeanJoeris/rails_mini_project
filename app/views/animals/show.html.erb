@@ -11,25 +11,25 @@
 
 <ul>
   <li>
-    <%= @animal.kingdom.name %>
+    Kingdom: <%= @animal.kingdom.name if @animal.kingdom %>
   </li>
   <li>
-    <%= @animal.phylum.name %>
+    Phylum: <%= @animal.phylum.name if @animal.phylum %>
   </li>
   <li>
-    <%= @animal.taxonomical_class.name %>
+    Class: <%= @animal.taxonomical_class.name if @animal.taxonomical_class %>
   </li>
   <li>
-    <%= @animal.order.name %>
+    Order: <%= @animal.order.name if @animal.order %>
   </li>
   <li>
-    <%= @animal.family.name %>
+    Family: <%= @animal.family.name if @animal.family %>
   </li>
   <li>
-    <%= @animal.genus.name %>
+    Genus: <%= @animal.genus.name if @animal.genus %>
   </li>
   <li>
-    <%= @animal.species.name %>
+    Species: <%= @animal.species.name if @animal.species %>
   </li>
 </ul>
 

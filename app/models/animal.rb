@@ -11,4 +11,8 @@ class Animal < ActiveRecord::Base
   belongs_to :family, optional: true
   belongs_to :genus, optional: true
   belongs_to :species, optional: true
+
+  def no_taxonomical_data?
+    !kingdom || !phylum || !taxonomical_class || !order || !family || !genus || !species
+  end
 end
