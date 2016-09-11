@@ -33,4 +33,8 @@ class Animal < ActiveRecord::Base
            genus: genus,
            species: species)
   end
+
+  def wiki_img_url
+    "https://#{image_path}"
+  end
 end

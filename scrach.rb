@@ -1,8 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
 require 'byebug'
-doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/lemur"))
-# byebug
+doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/zebra"))
+byebug
 table_data = doc.css(".infobox").css("td")#.to_xml
 doc.css(".infobox").css("td").css("a") do |link|
   puts link
