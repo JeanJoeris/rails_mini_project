@@ -1,5 +1,19 @@
-<h1>Sighting!</h1>
+<h1 class="text-center container well well-sm">Sighting!</h1>
 
-<p>
-  <%= @sighting.full_sighting_text %>
-</p>
+<div class="container">
+  <div class="well well-sm row">
+
+      <div class="col col-md-8">
+        <p class="lead">
+          <%= @sighting.full_sighting_text %>
+        </p>
+      </div>
+      <div class="col col-md-4">
+        <% if @sighting.animal.image_path %>
+          <div class="animal_image">
+            <%= image_tag @sighting.animal.wiki_img_url %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
