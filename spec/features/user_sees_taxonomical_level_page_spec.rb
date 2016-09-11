@@ -19,7 +19,7 @@ RSpec.feature "User sees taxonomical level page" do
     click_on "Create Animal"
 
     click_on "Chordata"
-
+    save_and_open_page
     expect(page).to have_content("Platypus")
     expect(page).to have_content("Aardwolf")
   end

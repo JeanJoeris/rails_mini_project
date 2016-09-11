@@ -14,11 +14,11 @@ Rails.application.routes.draw do
 
   resources :sightings, only: [:index, :new, :create, :show]
 
-  resources :kingdom, only:  [:show]
-  resources :phylum, only:  [:show]
-  resources :class, only:  [:show]
-  resources :order, only:  [:show]
-  resources :family, only:  [:show]
+  resources :kingdoms, only:  [:show]
+  resources :phylums, only:  [:show]
+  resources :classes, only:  [:show]
+  resources :orders, only:  [:show]
+  resources :families, only:  [:show]
   resources :genus, only:  [:show]
   resources :species, only:  [:show]
   # get '/animals', to: 'animals#index'

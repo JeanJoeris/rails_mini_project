@@ -9,29 +9,31 @@
   <strong>Warm Blooded:</strong> <%= @animal.warm_blooded %>
 </p>
 
-<ul>
-  <li>
-    Kingdom: <%= link_to @animal.kingdom.name, @animal.kingdom if @animal.kingdom.name != nil%>
-  </li>
-  <li>
-    Phylum: <%= link_to @animal.phylum.name, @animal.phylum if @animal.phylum.name != nil %>
-  </li>
-  <li>
-    Class: <%= link_to @animal.taxonomical_class.name, class_path(@animal.taxonomical_class) if @animal.taxonomical_class.name != nil %>
-  </li>
-  <li>
-    Order: <%= link_to @animal.order.name, @animal.order if @animal.order.name != nil %>
-  </li>
-  <li>
-    Family: <%= link_to @animal.family.name, @animal.family if @animal.family.name != nil %>
-  </li>
-  <li>
-    Genus: <%= link_to @animal.genus.name, @animal.genus if @animal.genus.name != nil %>
-  </li>
-  <li>
-    Species: <%= link_to @animal.species.name, @animal.species if @animal.species.name != nil %>
-  </li>
-</ul>
+<% unless @animal.no_taxonomical_data? %>
+  <ul>
+    <li>
+      Kingdom: <%= link_to @animal.kingdom.name, @animal.kingdom if @animal.kingdom.name != nil%>
+    </li>
+    <li>
+      Phylum: <%= link_to @animal.phylum.name, @animal.phylum if @animal.phylum.name != nil %>
+    </li>
+    <li>
+      Class: <%= link_to @animal.taxonomical_class.name, class_path(@animal.taxonomical_class) if @animal.taxonomical_class.name != nil %>
+    </li>
+    <li>
+      Order: <%= link_to @animal.order.name, @animal.order if @animal.order.name != nil %>
+    </li>
+    <li>
+      Family: <%= link_to @animal.family.name, @animal.family if @animal.family.name != nil %>
+    </li>
+    <li>
+      Genus: <%= link_to @animal.genus.name, @animal.genus if @animal.genus.name != nil %>
+    </li>
+    <li>
+      Species: <%= link_to @animal.species.name, @animal.species if @animal.species.name != nil %>
+    </li>
+  </ul>
+<% end %>
 
 <% if @animal.image_path %>
   <div class="animal_image">
