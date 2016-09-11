@@ -37,4 +37,5 @@ RSpec.describe Animal, type: :model do
   it { should belong_to(:phylum) }
   it { should belong_to(:taxonomical_class) }
   it { should belong_to(:order) }
+  it { should belong_to(:family) }
 end
