@@ -1,7 +1,11 @@
 module WikiParser
 
+  def self.get_wiki_hmtl(creature)
+    Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{creature}"))
+  end
+
   def self.get_taxonomical_data(creature)
-    doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{creature}"))
+    doc = get_wiki_hmtl(creature)
     table_data = doc.css(".infobox").css("td")
     tax_levels = ["Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"]
     tax_data = tax_levels.map do |tax_level|
@@ -27,6 +31,11 @@ module WikiParser
       end
       # /\>[^<]+\</.match(tax_datum.to_html).to_s
     end
+  end
+
+  def self.get_wiki_picture(creature)
+    doc = get_wiki_hmtl(creature)
+    doc.css(".infobox").css("img").first.attributes["src"].value.reverse.chop.chop.reverse
   end
 
   # def find_row_after_a_word(td_rows, word)

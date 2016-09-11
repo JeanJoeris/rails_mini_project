@@ -7,6 +7,7 @@ class AnimalsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:id])
+    @wiki_img = "https://#{@animal.image_path}"
   end
 
   def new
@@ -58,7 +59,7 @@ class AnimalsController < ApplicationController
 
   def add_taxonomical_data(animal)
     tax_data = WikiParser.get_taxonomical_data(animal.name)
-
+    animal_pic = WikiParser.get_wiki_picture(animal.name)
     kingdom = Kingdom.find_or_create_by(name: tax_data["Kingdom"])
     phylum = Phylum.find_or_create_by(name: tax_data["Phylum"])
     taxonomical_class = TaxonomicalClass.find_or_create_by(name: tax_data["Class"])
@@ -72,6 +73,7 @@ class AnimalsController < ApplicationController
                   order: order,
                   family: family,
                   genus: genus,
-                  species: species)
+                  species: species,
+                  image_path: animal_pic)
   end
 end
