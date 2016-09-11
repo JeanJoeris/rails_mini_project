@@ -29,7 +29,6 @@ RSpec.feature "User creates a sighting" do
     select(59, :from => "sighting_sighting_time_5i")
 
     click_on "Create Sighting"
-    save_and_open_page
     
     expect(page).to have_content("#{animal.name} was spotted at #{location.name} at 20:59 on August 09")
   end

@@ -38,6 +38,25 @@ RSpec.feature "User creates animal" do
       expect(page).to have_content "Name can't be blank, Legs can't be blank"
       expect(page).to have_content "Create a New Animal!"
     end
+
+    scenario "gives a species and sees the taxonomical data" do
+      login_user
+
+      visit new_animal_path
+
+      fill_in "Name", with: "Platypus"
+      fill_in "Legs", with: 4
+
+      click_on "Create Animal"
+
+      expect(page).to have_content("Animalia")
+      expect(page).to have_content("Chordata")
+      expect(page).to have_content("Mammalia")
+      expect(page).to have_content("Monotremata")
+      expect(page).to have_content("Ornithorhynchidae")
+      expect(page).to have_content("Ornithorhynchus")
+      expect(page).to have_content("Anatinus")
+    end
   end
 
   def login_user
