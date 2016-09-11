@@ -57,21 +57,10 @@ class AnimalsController < ApplicationController
   end
 
   def add_taxonomical_data(animal)
-    tax_data = WikiParser.get_taxonomical_data(animal.name)
-
-    kingdom = Kingdom.find_or_create_by(name: tax_data["Kingdom"])
-    phylum = Phylum.find_or_create_by(name: tax_data["Phylum"])
-    taxonomical_class = TaxonomicalClass.find_or_create_by(name: tax_data["Class"])
-    order = Order.find_or_create_by(name: tax_data["Order"])
-    family = Family.find_or_create_by(name: tax_data["Family"])
-    genus = Genus.find_or_create_by(name: tax_data["Genus"])
-    species = Species.find_or_create_by(name: tax_data["Species"])
-    animal.update(kingdom: kingdom,
-                  phylum: phylum,
-                  taxonomical_class: taxonomical_class,
-                  order: order,
-                  family: family,
-                  genus: genus,
-                  species: species)
+    animal.add_taxonomical_data
+    unless animal.image_path
+      animal_pic = WikiParser.get_wiki_picture(animal.name)
+      animal.update(image_path: animal_pic)
+    end
   end
 end
