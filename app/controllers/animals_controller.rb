@@ -15,6 +15,7 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
+    add_taxonomical_data(@animal)
     if @animal.save
       redirect_to @animal
     else
@@ -48,7 +49,26 @@ class AnimalsController < ApplicationController
   def require_login
     unless logged_in?
       flash[:authorization_error] = "You must log in to add an animal"
-      redirect_to login_path 
+      redirect_to login_path
     end
+  end
+
+  def add_taxonomical_data(animal)
+    tax_data = WikiParser.get_taxonomical_data(animal.name)
+
+    kingdom = Kingdom.create(name: tax_data["Kingdom"])
+    phylum = Phylum.create(name: tax_data["Phylum"])
+    taxonomical_class = TaxonomicalClass.create(name: tax_data["Class"])
+    order = Order.create(name: tax_data["Order"])
+    family = Family.create(name: tax_data["Family"])
+    genus = Genus.create(name: tax_data["Genus"])
+    species = Species.create(name: tax_data["Species"])
+    animal.update(kingdom: kingdom,
+                  phylum: phylum,
+                  taxonomical_class: taxonomical_class,
+                  order: order,
+                  family: family,
+                  genus: genus,
+                  species: species)
   end
 end

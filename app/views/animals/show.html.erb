@@ -9,6 +9,30 @@
   <strong>Warm Blooded:</strong> <%= @animal.warm_blooded %>
 </p>
 
+<ul>
+  <li>
+    <%= @animal.kingdom.name %>
+  </li>
+  <li>
+    <%= @animal.phylum.name %>
+  </li>
+  <li>
+    <%= @animal.taxonomical_class.name %>
+  </li>
+  <li>
+    <%= @animal.order.name %>
+  </li>
+  <li>
+    <%= @animal.family.name %>
+  </li>
+  <li>
+    <%= @animal.genus.name %>
+  </li>
+  <li>
+    <%= @animal.species.name %>
+  </li>
+</ul>
+
 <% if @animal.image_path %>
   <div class="animal_image">
     <%= image_tag @animal.image_path %> <br />

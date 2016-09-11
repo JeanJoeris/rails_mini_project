@@ -40,7 +40,6 @@ RSpec.feature "User creates animal" do
     end
 
     scenario "gives a species and sees the taxonomical data" do
-      pending
       login_user
 
       visit new_animal_path
@@ -49,6 +48,8 @@ RSpec.feature "User creates animal" do
       fill_in "Legs", with: 4
 
       click_on "Create Animal"
+
+      save_and_open_page
 
       expect(page).to have_content("Animalia")
       expect(page).to have_content("Chordata")
