@@ -6,4 +6,5 @@ class Animal < ActiveRecord::Base
 
   belongs_to :kingdom, optional: true
   belongs_to :phylum, optional: true
+  belongs_to :taxonomical_class, optional: true
 end
