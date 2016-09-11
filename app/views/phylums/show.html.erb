@@ -1,9 +1,1 @@
-<h1><%= @phylum.name %></h1>
-
-<ul>
-  <% @phylum.animals.each do |animal| %>
-    <li>
-      <%= link_to animal.name, animal %>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: "shared/animals_by_taxonomical_level", locals: { data: @phylum } %>
