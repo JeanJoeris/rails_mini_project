@@ -10,4 +10,5 @@ class Animal < ActiveRecord::Base
   belongs_to :order, optional: true
   belongs_to :family, optional: true
   belongs_to :genus, optional: true
+  belongs_to :species, optional: true
 end
