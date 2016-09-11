@@ -33,4 +33,5 @@ RSpec.describe Animal, type: :model do
   end
 
   it { should have_many(:sightings) }
+  it { should belong_to(:kingdom) }
 end
