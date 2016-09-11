@@ -1,12 +1,30 @@
 require 'nokogiri'
 require 'open-uri'
 require 'byebug'
-doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Wolf"))
+doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/platypus"))
 # byebug
 table_data = doc.css(".infobox").css("td")#.to_xml
-doc.css(".infobox").css("td").each do |link|
+doc.css(".infobox").css("td").css("a") do |link|
   puts link
 end
+
+
+def find_row_after_a_word(td_rows, word)
+  result = nil
+  td_rows.each_with_index do |row, index|
+    # puts row
+    # puts "~*~*~*~*~*~*~*~*~*~~*"
+    result = td_rows[index+1] if row.to_s.include?(word)
+    # byebug if result
+    # puts result.children.text if result
+  end
+  result
+end
+tax_levels = ["Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"]
+tax_rows = tax_levels.map do |tax_level|
+  find_row_after_a_word(table_data, tax_level)
+end
+puts tax_rows
 # kingdom_index = table_data.index("Kingdom:")
 #
 # foo = table_data.split("Kingdom:")
