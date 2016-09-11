@@ -33,4 +33,11 @@ RSpec.describe Animal, type: :model do
   end
 
   it { should have_many(:sightings) }
+  it { should belong_to(:kingdom) }
+  it { should belong_to(:phylum) }
+  it { should belong_to(:taxonomical_class) }
+  it { should belong_to(:order) }
+  it { should belong_to(:family) }
+  it { should belong_to(:genus) }
+  it { should belong_to(:species) }
 end

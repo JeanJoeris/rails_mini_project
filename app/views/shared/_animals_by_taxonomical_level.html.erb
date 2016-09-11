@@ -1,0 +1,9 @@
+<h1><%= data.name %></h1>
+
+<ul>
+  <% data.animals.each do |animal| %>
+    <li>
+      <%= link_to animal.name, animal %>
+    </li>
+  <% end %>
+</ul>

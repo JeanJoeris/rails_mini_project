@@ -13,6 +13,14 @@ Rails.application.routes.draw do
   end
 
   resources :sightings, only: [:index, :new, :create, :show]
+
+  resources :kingdoms, only:  [:show]
+  resources :phylums, only:  [:show]
+  resources :classes, only:  [:show]
+  resources :orders, only:  [:show]
+  resources :families, only:  [:show]
+  resources :genus, only:  [:show]
+  resources :species, only:  [:show]
   # get '/animals', to: 'animals#index'
   # get '/animals/new', to: 'animals#new', as: "new_animal"
   # post '/animals', to: 'animals#create'

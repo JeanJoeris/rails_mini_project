@@ -9,6 +9,32 @@
   <strong>Warm Blooded:</strong> <%= @animal.warm_blooded %>
 </p>
 
+
+  <ul>
+    <li>
+      Kingdom: <%= link_to @animal.kingdom.name, @animal.kingdom if @animal.kingdom_id && @animal.kingdom.name %>
+    </li>
+    <li>
+      Phylum: <%= link_to @animal.phylum.name, @animal.phylum if @animal.phylum_id && @animal.phylum.name %>
+    </li>
+    <li>
+      Class: <%= link_to @animal.taxonomical_class.name, class_path(@animal.taxonomical_class) if @animal.taxonomical_class_id && @animal.taxonomical_class.name %>
+    </li>
+    <li>
+      Order: <%= link_to @animal.order.name, @animal.order if @animal.order_id && @animal.order.name %>
+    </li>
+    <li>
+      Family: <%= link_to @animal.family.name, @animal.family if @animal.family_id && @animal.family.name %>
+    </li>
+    <li>
+      Genus: <%= link_to @animal.genus.name, @animal.genus if @animal.genus_id && @animal.genus.name %>
+    </li>
+    <li>
+      Species: <%= link_to @animal.species.name, @animal.species if @animal.species_id && @animal.species.name %>
+    </li>
+  </ul>
+
+
 <% if @animal.image_path %>
   <div class="animal_image">
     <%= image_tag @animal.image_path %> <br />

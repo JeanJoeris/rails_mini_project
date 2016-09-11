@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910174819) do
+ActiveRecord::Schema.define(version: 20160911171848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,56 @@ ActiveRecord::Schema.define(version: 20160910174819) do
     t.integer  "legs"
     t.boolean  "poisonous"
     t.boolean  "warm_blooded"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "image_path"
+    t.integer  "kingdom_id"
+    t.integer  "phylum_id"
+    t.integer  "taxonomical_class_id"
+    t.integer  "order_id"
+    t.integer  "family_id"
+    t.integer  "genus_id"
+    t.integer  "species_id"
+    t.index ["family_id"], name: "index_animals_on_family_id", using: :btree
+    t.index ["genus_id"], name: "index_animals_on_genus_id", using: :btree
+    t.index ["kingdom_id"], name: "index_animals_on_kingdom_id", using: :btree
+    t.index ["order_id"], name: "index_animals_on_order_id", using: :btree
+    t.index ["phylum_id"], name: "index_animals_on_phylum_id", using: :btree
+    t.index ["species_id"], name: "index_animals_on_species_id", using: :btree
+    t.index ["taxonomical_class_id"], name: "index_animals_on_taxonomical_class_id", using: :btree
+  end
+
+  create_table "families", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genus", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kingdoms", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "phylums", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,6 +87,18 @@ ActiveRecord::Schema.define(version: 20160910174819) do
     t.index ["user_id"], name: "index_sightings_on_user_id", using: :btree
   end
 
+  create_table "species", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taxonomical_classes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
@@ -53,6 +109,13 @@ ActiveRecord::Schema.define(version: 20160910174819) do
     t.datetime "updated_at",                        null: false
   end
 
+  add_foreign_key "animals", "families"
+  add_foreign_key "animals", "genus", column: "genus_id"
+  add_foreign_key "animals", "kingdoms"
+  add_foreign_key "animals", "orders"
+  add_foreign_key "animals", "phylums"
+  add_foreign_key "animals", "species"
+  add_foreign_key "animals", "taxonomical_classes"
   add_foreign_key "sightings", "animals"
   add_foreign_key "sightings", "locations"
   add_foreign_key "sightings", "users"
