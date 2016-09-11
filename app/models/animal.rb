@@ -9,4 +9,5 @@ class Animal < ActiveRecord::Base
   belongs_to :taxonomical_class, optional: true
   belongs_to :order, optional: true
   belongs_to :family, optional: true
+  belongs_to :genus, optional: true
 end
