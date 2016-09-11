@@ -5,4 +5,5 @@ class Animal < ActiveRecord::Base
   has_many :sightings
 
   belongs_to :kingdom, optional: true
+  belongs_to :phylum, optional: true
 end
