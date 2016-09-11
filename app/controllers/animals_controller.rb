@@ -58,7 +58,9 @@ class AnimalsController < ApplicationController
 
   def add_taxonomical_data(animal)
     animal.add_taxonomical_data
-    animal_pic = WikiParser.get_wiki_picture(animal.name)
-    animal.update(image_path: animal_pic)
+    unless animal.image_path
+      animal_pic = WikiParser.get_wiki_picture(animal.name)
+      animal.update(image_path: animal_pic)
+    end
   end
 end
