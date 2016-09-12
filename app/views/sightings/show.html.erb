@@ -7,6 +7,9 @@
         <p class="lead">
           <%= @sighting.full_sighting_text %>
         </p>
+        <br />
+        <br />
+        <h3><%= link_to "What the heck is that?", @sighting.animal %></h3>
       </div>
       <div class="col col-md-4">
         <% if @sighting.animal.image_path %>

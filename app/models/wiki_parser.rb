@@ -1,7 +1,7 @@
 module WikiParser
 
   def self.get_wiki_hmtl(creature)
-    sanizized_name = creature.gsub(" ", "%20")
+    sanizized_name = creature.gsub(" ", "_")
     Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{sanizized_name}"))
   end
 

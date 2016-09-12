@@ -1,0 +1,16 @@
+.index_image img {
+  height: 150px;
+  width: auto;
+}
+
+#background_container {
+  background-image: url("http://www.clipartkid.com/images/51/jungle-safari-background-jungle-theme-still-QUV0HF-clipart.jpg");
+  /*background-image: url("http://www.shauntmax30.com/data/out/41/1304497-hd-the-matrix-wp-for-pc.gif");*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 1000px;
+}
+
+.navlink {
+  font-size: 20px;
+}

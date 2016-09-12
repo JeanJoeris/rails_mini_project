@@ -9,17 +9,32 @@
   </head>
 
   <body>
-    <% flash.each do |name, message| %>
-      <%= content_tag :div, message, class: "flash_#{name}" %>
-    <% end %>
+    <div id="background_container">
+    <div class="navbar navbar-default">
+      <div class="navbar-header navbar-left">
+        <a class="navbar-brand" href="/">Basement Animals</a>
+      </div>
+      <div class="navbar-form navbar-right">
+        <%= link_to "Animals", animals_path, class: "navlink" %> |
+        <%= link_to "Sightings", sightings_path, class: "navlink" %> |
 
-    <%= yield %><br />
-    <% if logged_in? %>
-      <%= link_to "Logout", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "Login/Sign-Up", login_path %>
-    <% end %>
-    <%= link_to "Animals", animals_path %>
-    <%= link_to "Sightings", sightings_path %>
+        <% if logged_in? %>
+        <%= link_to "Logout", logout_path, method: :delete, class: "navlink" %>
+        <% else %>
+        <%= link_to "Login/Sign-Up", login_path, class: "navlink" %>
+        <% end %>
+
+        <div class="row text-center">
+          <% flash.each do |name, message| %>
+          <%= content_tag :div, message, class: "flash_#{name}" %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+
+      <%= yield %>
+    </div>
   </body>
 </html>
