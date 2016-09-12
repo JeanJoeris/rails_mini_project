@@ -1,0 +1,18 @@
+<h1 class="text-center container well well-sm">Did You See Something Wrong?</h1>
+<div class="container well well-md">
+<%= form_for(@sighting) do |f| %>
+  <%= f.label :animal %>
+  <%= f.collection_select :animal_id, @animals, :id, :name %><br />
+
+  <%= f.label :location %>
+  <%= f.collection_select :location_id, @locations, :id, :name %><br />
+
+  <%= f.datetime_select :sighting_time %><br />
+
+  <%= f.label :non_sighting, "Non-sighting?" %>
+  <%= f.check_box :non_sighting %>
+  <br />
+  <br />
+  <%= f.submit %>
+<% end %>
+</div>

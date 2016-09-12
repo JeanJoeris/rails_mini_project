@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :locations, only: [:index, :new, :create]
   end
 
-  resources :sightings, only: [:index, :new, :create, :show]
+  resources :sightings
 
   resources :kingdoms, only:  [:show]
   resources :phylums, only:  [:show]
