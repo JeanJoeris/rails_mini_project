@@ -24,17 +24,16 @@
         <%= link_to "Login/Sign-Up", login_path, class: "navlink" %>
         <% end %>
 
-        <div class="row text-center">
-          <% flash.each do |name, message| %>
-          <%= content_tag :div, message, class: "flash_#{name}" %>
-          <% end %>
-        </div>
 
       </div>
     </div>
 
 
       <%= yield %>
+
+        <% flash.each do |name, message| %>
+        <%= content_tag :div, message, class: "flash_#{name} container well well-sm text-center" %>
+        <% end %>
     </div>
   </body>
 </html>

@@ -1,17 +1,19 @@
-<h2>Create a New User</h2>
+<h2 class="container well well-sm text-center">Create a New User</h2>
 
-<%= form_for(@user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %> <br />
+<div class="container well well-md">
+  <%= form_for(@user) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br />
 
-  <%= f.label :username %>
-  <%= f.text_field :username %> <br />
+    <%= f.label :username %>
+    <%= f.text_field :username %> <br />
 
-  <%= f.label :password %>
-  <%= f.password_field :password %> <br />
+    <%= f.label :password %>
+    <%= f.password_field :password %> <br />
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %> <br />
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %> <br />
 
-  <%= f.submit "Create Account" %>
-<% end %>
+    <%= f.submit "Create Account" %>
+  <% end %>
+</div>
