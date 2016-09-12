@@ -1,1 +1,7 @@
+<h1 class="text-center container well well-sm"><u><%= link_to "Genus: ", genus_path %><%= "#{@genus.name}" %></u></h1>
+
 <%= render partial: "shared/animals_by_taxonomical_level", locals: { data: @genus, taxonomical_level: "Genus" } %>
+
+<h1 class="text-center container well well-sm"><u>Contained Species</u></h1>
+
+<%= render partial: "shared/tax_index", locals: { levels: @genus.species } %>

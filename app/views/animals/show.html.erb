@@ -28,13 +28,13 @@
     </div>
     <div class="col col-md-4">
       <h3><u>Taxonomical Info:</u></h3>
-      <h4>Kingdom: <%= link_to @animal.kingdom.name, @animal.kingdom if @animal.kingdom_id && @animal.kingdom.name %></h3>
-      <h4>Phylum: <%= link_to @animal.phylum.name, @animal.phylum if @animal.phylum_id && @animal.phylum.name %></h4>
-      <h4>Class: <%= link_to @animal.taxonomical_class.name, class_path(@animal.taxonomical_class) if @animal.taxonomical_class_id && @animal.taxonomical_class.name %></h4>
-      <h4>Order: <%= link_to @animal.order.name, @animal.order if @animal.order_id && @animal.order.name %></h4>
-      <h4>Family: <%= link_to @animal.family.name, @animal.family if @animal.family_id && @animal.family.name %></h4>
-      <h4>Genus: <%= link_to @animal.genus.name, @animal.genus if @animal.genus_id && @animal.genus.name %></h4>
-      <h4>Species: <%= link_to @animal.species.name, @animal.species if @animal.species_id && @animal.species.name %></h4>
+      <h4><%= link_to "Kingdom:", kingdoms_path %> <%= link_to @animal.kingdom.name, @animal.kingdom if @animal.kingdom_id && @animal.kingdom.name %></h3>
+      <h4><%= link_to "Phylum:", phylums_path %> <%= link_to @animal.phylum.name, @animal.phylum if @animal.phylum_id && @animal.phylum.name %></h4>
+      <h4><%= link_to "Class:", taxonomical_classes_path %> <%= link_to @animal.taxonomical_class.name, @animal.taxonomical_class if @animal.taxonomical_class_id && @animal.taxonomical_class.name %></h4>
+      <h4><%= link_to "Order:", orders_path %> <%= link_to @animal.order.name, @animal.order if @animal.order_id && @animal.order.name %></h4>
+      <h4><%= link_to "Family:", families_path %> <%= link_to @animal.family.name, @animal.family if @animal.family_id && @animal.family.name %></h4>
+      <h4><%= link_to "Genus:", genus_path %> <%= link_to @animal.genus.name, @animal.genus if @animal.genus_id && @animal.genus.name %></h4>
+      <h4><%= link_to "Species:", species_index_path %> <%= link_to @animal.species.name, @animal.species if @animal.species_id && @animal.species.name %></h4>
     </div>
     <div class="col col-md-4">
       <h3><u>Picture:</u></h3>
