@@ -3,16 +3,7 @@
 <div class="container">
   <div class="row">
     <% @animal.each do |animal| %>
-      <div class="container col col-md-4">
-        <a href=<%= "#{animal_path(animal)}" %>>
-          <div class="well well-md">
-            <div class="index_image">
-              <%= image_tag animal.wiki_img_url, class: "center-block" %>
-            </div>
-            <h3 class="text-center"><%= link_to animal.name, animal %></h3>
-          </div>
-        </a>
-      </div>
+      <%= render partial: "shared/animal_container", locals: {animal: animal} %>
     <% end %>
   </div>
   <br />
