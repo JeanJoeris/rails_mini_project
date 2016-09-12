@@ -1,7 +1,7 @@
 .index_image img {
   height: 150px;
   width: auto;
-  max-width: 215px;
+  max-width: 275px;
 }
 
 #background_container {
@@ -16,6 +16,6 @@
 }
 
 .animal_image img{
-  max-height: 200px;
-  max-width: 200px;
+  max-height: 300px;
+  max-width: 300px;
 }
