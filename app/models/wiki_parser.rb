@@ -3,7 +3,10 @@ module WikiParser
   def self.get_wiki_hmtl(creature)
     sanizized_name = creature.gsub(" ", "_")
     url = "https://en.wikipedia.org/wiki/#{sanizized_name}"
+    safely_open_url(url)
+  end
 
+  def self.safely_open_url(url)
     begin
       file = open(url)
       Nokogiri::HTML(file)
