@@ -2,18 +2,37 @@ module WikiParser
 
   def self.get_wiki_hmtl(creature)
     sanizized_name = creature.gsub(" ", "_")
-    Nokogiri::HTML(open("https://en.wikipedia.org/wiki/#{sanizized_name}"))
+    url = "https://en.wikipedia.org/wiki/#{sanizized_name}"
+
+    begin
+      file = open(url)
+      Nokogiri::HTML(file)
+    rescue OpenURI::HTTPError => e
+      if e.message == '404 Not Found'
+        nil
+      else
+        raise e
+      end
+    end
   end
 
   def self.get_taxonomical_data(creature)
-    doc = get_wiki_hmtl(creature)
-    table_data = doc.css(".infobox").css("td")
     tax_levels = ["Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"]
-    tax_data = tax_levels.map do |tax_level|
-      find_data_with_word(table_data, tax_level)
+
+    doc = get_wiki_hmtl(creature)
+    if doc
+      byebug
+      table_data = doc.css(".infobox").css("td")
+
+      tax_data = tax_levels.map do |tax_level|
+        find_data_with_word(table_data, tax_level)
+      end
+
+      tax_names = find_tax_names(tax_data)
+      tax_levels.zip(tax_names).to_h
+    else
+      tax_levels.zip(Array.new(tax_levels.length)).to_h
     end
-    tax_names = find_tax_names(tax_data)
-    tax_levels.zip(tax_names).to_h
   end
 
   def self.find_data_with_word(data, word)
@@ -34,6 +53,8 @@ module WikiParser
 
   def self.get_wiki_picture(creature)
     doc = get_wiki_hmtl(creature)
-    doc.css(".infobox").css("img").first.attributes["src"].value.reverse.chop.chop.reverse
+    if doc
+      doc.css(".infobox").css("img").first.attributes["src"].value.reverse.chop.chop.reverse
+    end
   end
 end
