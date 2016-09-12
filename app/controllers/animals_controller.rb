@@ -2,7 +2,7 @@ class AnimalsController < ApplicationController
   before_action :require_login
 
   def index
-    @animal = Animal.all
+    @animal = Animal.alpha_sorted
   end
 
   def show
@@ -16,6 +16,7 @@ class AnimalsController < ApplicationController
   def create
     @animal = Animal.new(animal_params)
     if @animal.save
+      flash[:notice] = "Animal Created!"
       add_taxonomical_data(@animal)
       redirect_to @animal
     else

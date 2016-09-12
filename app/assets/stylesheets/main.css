@@ -1,0 +1,6 @@
+.hero-unit {
+  background-image: url('../images/kanye.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}

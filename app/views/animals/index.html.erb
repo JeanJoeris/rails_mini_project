@@ -1,10 +1,23 @@
-<h2>Animals that are not currently in the Turing Basement</h2>
-<p>
-  There are <%= @animal.count %> animals
-</p>
+<h1 class="text-center container well well-sm"><u>Animals that may or may not be in the Turing Basement</u></h1>
 
-<% @animal.each do |animal| %>
-  <h3><%= link_to animal.name, animal %></h3>
-<% end %>
-
-<%= link_to "Add an animal", new_animal_path %>
+<div class="container">
+  <div class="row">
+    <% @animal.each do |animal| %>
+      <div class="container col col-md-4">
+        <a href=<%= "#{animal_path(animal)}" %>>
+          <div class="well well-md">
+            <div class="index_image">
+              <%= image_tag animal.wiki_img_url, class: "center-block" %>
+            </div>
+            <h3 class="text-center"><%= link_to animal.name, animal %></h3>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+  <br />
+  <!-- <p class="text-center">
+    There are <%#= @animal.count %> animals
+  </p> -->
+  <h2 class="text-center well well-sm"><%= link_to "Add an animal", new_animal_path %></h2>
+</div>

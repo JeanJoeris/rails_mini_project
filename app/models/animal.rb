@@ -12,6 +12,10 @@ class Animal < ActiveRecord::Base
   belongs_to :genus, optional: true
   belongs_to :species, optional: true
 
+  def self.alpha_sorted
+    all.order(name: :asc)
+  end
+
   def no_taxonomical_data?
     !kingdom || !phylum || !taxonomical_class || !order || !family || !genus || !species
   end

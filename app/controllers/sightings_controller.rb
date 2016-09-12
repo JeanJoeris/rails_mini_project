@@ -5,8 +5,8 @@ class SightingsController < ApplicationController
 
   def new
     @sighting = current_user.sightings.new
-    @animals = Animal.all
-    @locations = Location.all
+    @animals = Animal.all.order(name: :asc)
+    @locations = Location.all.order(name: :asc)
   end
 
   def create

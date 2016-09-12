@@ -1,0 +1,19 @@
+<div class="container well well-md">
+  <%= form_for(@animal) do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %> <br/>
+      <%= f.label :legs %>
+      <%= f.text_field :legs %> <br/>
+      <%= f.label :poisonous %>
+      <%= f.check_box :poisonous %> <br/>
+      <%= f.label :warm_blooded %>
+      <%= f.check_box :warm_blooded %> <br/>
+      <%= f.label :image_path %> <br/>
+      <%= f.text_field :image_path %> - If blank will use Wikipedia image
+      <br />
+      <br />
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

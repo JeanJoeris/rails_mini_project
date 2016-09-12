@@ -1,5 +1,5 @@
-<h1>What did you see?!</h1>
-
+<h1 class="text-center container well well-sm">What did you see?!</h1>
+<div class="container well well-md">
 <%= form_for(@sighting) do |f| %>
   <%= f.label :animal %>
   <%= f.collection_select :animal_id, @animals, :id, :name %><br />
@@ -11,6 +11,8 @@
 
   <%= f.label :non_sighting, "Non-sighting?" %>
   <%= f.check_box :non_sighting %>
-
+  <br />
+  <br />
   <%= f.submit %>
 <% end %>
+</div>
