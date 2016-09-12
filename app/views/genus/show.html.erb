@@ -4,4 +4,4 @@
 
 <h1 class="text-center container well well-sm"><u>Contained Species</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @genus.species } %>
+<%= render partial: "shared/tax_index", locals: { levels: @genus.species.order(name: :asc) } %>

@@ -4,24 +4,24 @@
 
 <h1 class="text-center container well well-sm"><u>Contained Phylums</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @kingdom.phylums } %>
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.phylums.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Classes</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @kingdom.taxonomical_classes } %>
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.taxonomical_classes.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Orders</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @kingdom.orders } %>
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.orders.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Families</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @kingdom.families } %>
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.families.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Genuses</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @kingdom.genus } %>
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.genus.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Species</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @kingdom.species } %>
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.species.order(name: :asc) } %>

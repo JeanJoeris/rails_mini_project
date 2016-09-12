@@ -4,16 +4,16 @@
 
 <h1 class="text-center container well well-sm"><u>Contained Orders</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @class.orders } %>
+<%= render partial: "shared/tax_index", locals: { levels: @class.orders.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Families</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @class.families } %>
+<%= render partial: "shared/tax_index", locals: { levels: @class.families.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Genuses</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @class.genus } %>
+<%= render partial: "shared/tax_index", locals: { levels: @class.genus.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Species</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @class.species } %>
+<%= render partial: "shared/tax_index", locals: { levels: @class.species.order(name: :asc) } %>

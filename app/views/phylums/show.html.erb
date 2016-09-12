@@ -4,20 +4,20 @@
 
 <h1 class="text-center container well well-sm"><u>Contained Classes</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @phylum.taxonomical_classes } %>
+<%= render partial: "shared/tax_index", locals: { levels: @phylum.taxonomical_classes.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Orders</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @phylum.orders } %>
+<%= render partial: "shared/tax_index", locals: { levels: @phylum.orders.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Families</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @phylum.families } %>
+<%= render partial: "shared/tax_index", locals: { levels: @phylum.families.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Genuses</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @phylum.genus } %>
+<%= render partial: "shared/tax_index", locals: { levels: @phylum.genus.order(name: :asc) } %>
 
 <h1 class="text-center container well well-sm"><u>Contained Species</u></h1>
 
-<%= render partial: "shared/tax_index", locals: { levels: @phylum.species } %>
+<%= render partial: "shared/tax_index", locals: { levels: @phylum.species.order(name: :asc) } %>
