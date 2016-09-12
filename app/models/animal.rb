@@ -22,6 +22,7 @@ class Animal < ActiveRecord::Base
 
   def add_taxonomical_data
     tax_data = WikiParser.get_taxonomical_data(name)
+
     kingdom = Kingdom.find_or_create_by(name: tax_data["Kingdom"])
     phylum = Phylum.find_or_create_by(name: tax_data["Phylum"])
     taxonomical_class = TaxonomicalClass.find_or_create_by(name: tax_data["Class"])
@@ -29,6 +30,7 @@ class Animal < ActiveRecord::Base
     family = Family.find_or_create_by(name: tax_data["Family"])
     genus = Genus.find_or_create_by(name: tax_data["Genus"])
     species = Species.find_or_create_by(name: tax_data["Species"])
+
     update(kingdom: kingdom,
            phylum: phylum,
            taxonomical_class: taxonomical_class,

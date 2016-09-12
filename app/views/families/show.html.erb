@@ -1,8 +1,12 @@
-<h1 class="text-center container well well-sm"><u><%= link_to "Family: ", families_path %><%= "#{@family.name}" %></u></h1>
+<h1 class="text-center container well well-sm">
+  <u><%= link_to "Family: ", families_path %><%= "#{@family.name}" %></u>
+</h1>
 
 <%= render partial: "shared/animals_by_taxonomical_level", locals: { data: @family, taxonomical_level: "Family" } %>
 
-<h1 class="text-center container well well-sm"><u>Contained Genuses</u></h1>
+<h1 class="text-center container well well-sm">
+  <u>Contained Genuses</u>
+</h1>
 
 <%= render partial: "shared/tax_index", locals: { levels: @family.genus.order(name: :asc).distinct } %>
 
