@@ -1,5 +1,5 @@
 class Animal < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :legs, presence: true
 
   has_many :sightings
@@ -40,5 +40,13 @@ class Animal < ActiveRecord::Base
 
   def wiki_img_url
     "https://#{image_path}"
+  end
+
+  def sighting_number
+    sightings.where(non_sighting: false).count
+  end
+
+  def non_sighting_number
+    sightings.where(non_sighting: true).count
   end
 end
