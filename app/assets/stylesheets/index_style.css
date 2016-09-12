@@ -1,6 +1,7 @@
 .index_image img {
   height: 150px;
   width: auto;
+  max-width: 215px;
 }
 
 #background_container {
@@ -12,4 +13,9 @@
 
 .navlink {
   font-size: 20px;
+}
+
+.animal_image img{
+  max-height: 200px;
+  max-width: 200px;
 }
