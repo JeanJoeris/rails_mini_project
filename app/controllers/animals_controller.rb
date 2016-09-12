@@ -1,5 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :require_login, except: [:index, :show]
+  before_action :allow_only_admins, only: [:destroy]
 
   def index
     @animal = Animal.alpha_sorted
@@ -54,6 +55,13 @@ class AnimalsController < ApplicationController
     unless logged_in?
       flash[:authorization_error] = "You must log in to add an animal"
       redirect_to login_path
+    end
+  end
+
+  def allow_only_admins
+    unless current_admin?
+      flash[:authorization_error] = "You aren't authorized to destroy animals, you monster..."
+      redirect_to animals_path
     end
   end
 
