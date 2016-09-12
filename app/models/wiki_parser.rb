@@ -21,7 +21,6 @@ module WikiParser
 
     doc = get_wiki_hmtl(creature)
     if doc
-      byebug
       table_data = doc.css(".infobox").css("td")
 
       tax_data = tax_levels.map do |tax_level|
@@ -44,9 +43,16 @@ module WikiParser
   def self.find_tax_names(tax_data)
     tax_data.map do |tax_datum|
       if tax_datum
-        matches = tax_datum.to_html.scan(/\>[^<]+\</) # finds the text rendered on screen i.e. text between tags
-        matches.delete(">\n<") # delete any stray newline chars hanging between tags
-        matches.first.delete("><").split(".").last.gsub(/\u00a0/, " ").strip.capitalize if matches.first # cut the text out from the ><, delete any spaces
+
+        # finds the text rendered on screen i.e. text between tags
+        matches = tax_datum.to_html.scan(/\>[^<]+\</)
+
+        # delete any stray newline chars hanging between tags
+        matches.delete(">\n<")
+
+        # cut the text out from the ><, delete any spaces. Thie first is necessary as it always holds the correct data
+        # even if subspecies or citations are included
+        matches.first.delete("><").split(".").last.gsub(/\u00a0/, " ").strip.capitalize if matches.first
       end
     end
   end
