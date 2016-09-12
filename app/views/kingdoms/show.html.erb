@@ -1,1 +1,27 @@
+<h1 class="text-center container well well-sm"><u><%= link_to "Kingdom: ", kingdoms_path %><%= "#{@kingdom.name}" %></u></h1>
+
 <%= render partial: "shared/animals_by_taxonomical_level", locals: { data: @kingdom, taxonomical_level: "Kingdom" } %>
+
+<h1 class="text-center container well well-sm"><u>Contained Phylums</u></h1>
+
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.phylums } %>
+
+<h1 class="text-center container well well-sm"><u>Contained Classes</u></h1>
+
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.taxonomical_classes } %>
+
+<h1 class="text-center container well well-sm"><u>Contained Orders</u></h1>
+
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.orders } %>
+
+<h1 class="text-center container well well-sm"><u>Contained Families</u></h1>
+
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.families } %>
+
+<h1 class="text-center container well well-sm"><u>Contained Genuses</u></h1>
+
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.genus } %>
+
+<h1 class="text-center container well well-sm"><u>Contained Species</u></h1>
+
+<%= render partial: "shared/tax_index", locals: { levels: @kingdom.species } %>

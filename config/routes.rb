@@ -14,13 +14,13 @@ Rails.application.routes.draw do
 
   resources :sightings
 
-  resources :kingdoms, only:  [:show]
-  resources :phylums, only:  [:show]
-  resources :classes, only:  [:show]
-  resources :orders, only:  [:show]
-  resources :families, only:  [:show]
-  resources :genus, only:  [:show]
-  resources :species, only:  [:show]
+  resources :kingdoms, only:  [:show, :index]
+  resources :phylums, only:  [:show, :index]
+  resources :classes, only:  [:show, :index], as: :taxonomical_classes
+  resources :orders, only:  [:show, :index]
+  resources :families, only:  [:show, :index]
+  resources :genus, only:  [:show, :index]
+  resources :species, only:  [:show, :index]
   # get '/animals', to: 'animals#index'
   # get '/animals/new', to: 'animals#new', as: "new_animal"
   # post '/animals', to: 'animals#create'

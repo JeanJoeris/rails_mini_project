@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <% levels.each do |level| %>
+      <% if level.name %>
+        <div class="container col col-md-4">
+          <div class="well well-md">
+            <h3>
+                <%= link_to level.name, level %>
+            </h3>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,1 +1,3 @@
+<h1 class="text-center container well well-sm"><u><%= link_to "Species: ", species_index_path %><%= "#{@species.name}" %></u></h1>
+
 <%= render partial: "shared/animals_by_taxonomical_level", locals: { data: @species, taxonomical_level: "Species" } %>
